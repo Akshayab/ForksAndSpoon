@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "FoodDetailViewController.h"
 
 @interface ViewController ()
 
@@ -49,8 +50,6 @@
         
     }
     
-//    cell.imageView.image = [UIImage imageNamed:@"geekPic.jpg"];
-    
     return cell;
     
 }
@@ -59,12 +58,12 @@
     return 200.0;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FoodDetail"];
-    [self presentViewController:vc animated:YES completion:^{
-        
-    }];
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"FoodSegue"]) {
+//        FoodDetailViewController *vc = segue.destinationViewController;
+//        NSInteger *row = [[self.mainTableView indexPathForSelectedRow] row];
+//        vc.row = row;
+    }
 }
 
 @end

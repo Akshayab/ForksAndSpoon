@@ -23,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *address;
 
 @property (strong, nonatomic) NSMutableArray *menuItems;
-@property (strong, nonatomic) NSDictionary *fetchedMenuData;
-@property (strong, nonatomic) NSDictionary *fetchedCookData;
+@property (strong, nonatomic) NSMutableDictionary *fetchedMenuData;
+@property (strong, nonatomic) NSMutableArray *fetchedCookData;
 
 @end

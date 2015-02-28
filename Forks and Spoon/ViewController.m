@@ -60,6 +60,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"FoodSegue"]) {
+        NSIndexPath *row = [self.mainTableView indexPathForSelectedRow];
+        [self.mainTableView deselectRowAtIndexPath:row animated:YES];
 //        FoodDetailViewController *vc = segue.destinationViewController;
 //        NSInteger *row = [[self.mainTableView indexPathForSelectedRow] row];
 //        vc.row = row;

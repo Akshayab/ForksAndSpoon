@@ -17,11 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.menuItems = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.menuItems = [[NSMutableArray alloc] initWithArray: @[@{@"name":@"akshay"},
+    self.fetchedMenuItems = [[NSMutableArray alloc] initWithArray: @[@{@"name":@"akshay"},
                                                               @{@"name":@"Vaish"},
                                                               @{@"name":@"Aditya"}]];
 }
@@ -39,7 +40,7 @@
 
 {
     
-    return self.menuItems.count;
+    return self.fetchedMenuItems.count;
     
 }
 
@@ -57,21 +58,31 @@
         
     }
     
-    cell.nameLabel.text = [self.menuItems[row] valueForKey:@"name"];
+    cell.nameLabel.text = [self.fetchedMenuItems[row] valueForKey:@"name"];
     
     return cell;
-    
 }
 
+-(void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+        [self.menuItems addObject:self.fetchedMenuItems[indexPath.row]];
+    }
+    else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        [self.menuItems removeObject:self.fetchedMenuItems[indexPath.row]];
+    }
+    [cell setHighlighted:NO];
+}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"MenuNewItems"]) {
+        
+    }
+}
+- (IBAction)doneButtonPressed:(id)sender {
+//    [self dismissViewControllerAnimated:self completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

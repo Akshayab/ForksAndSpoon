@@ -10,6 +10,8 @@
 
 @interface MenuListViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UILabel *someLabel;
+- (IBAction)doneButtonPressed:(id)sender;
 
 @property (strong, nonatomic) NSMutableArray *menuItems;
+@property (strong, nonatomic) NSMutableArray *fetchedMenuItems;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "FoodDetailViewController.h"
+#import "MenuListViewController.h"
 
 @interface FoodDetailViewController ()
 
@@ -34,6 +35,9 @@
         self.addItemsLabel.hidden = NO;
         self.foodItemsLabel.hidden = YES;
     }
+    else {
+        
+    }
 }
 
 /*
@@ -47,9 +51,19 @@
 */
 
 - (IBAction)cancelView:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-        
-    }];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(IBAction)savedMenuItems:(UIStoryboardSegue *)segue {
+    if ([segue.identifier isEqualToString:@"MenuNewItems"]) {
+        MenuListViewController *vc = (MenuListViewController *)segue.sourceViewController;
+        self.menuItems = vc.menuItems;
+        if (self.menuItems.count) {
+            self.addItemsLabel.hidden = YES;
+            self.foodItemsLabel.hidden = NO;
+            NSArray *strings = [self.menuItems valueForKey:@"name"];
+            self.foodItemsLabel.text = [strings componentsJoinedByString:@","];
+        }
+    }
 }
 @end

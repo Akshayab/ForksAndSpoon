@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="g48-30-i3I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-mB-ZpL">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-mB-ZpL">
                                 <rect key="frame" x="0.0" y="20" width="600" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -61,7 +61,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="cLg-Zz-Ehi" kind="show" identifier="FoodSegue" id="CtK-VU-wSw"/>
+                                            <segue destination="b3f-Wf-h3i" kind="show" id="OSN-hy-ZQR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -104,13 +104,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="WuD-DX-lMV"/>
                     <connections>
                         <outlet property="mainTableView" destination="bIR-mB-ZpL" id="drm-Ql-IbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="236"/>
+            <point key="canvasLocation" x="1125" y="236"/>
         </scene>
         <!--Menu-->
         <scene sceneID="LdO-KR-Z1a">
@@ -369,9 +370,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7T-5N-soj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="946" y="928"/>
+            <point key="canvasLocation" x="1758" y="928"/>
         </scene>
-        <!--Menu List View Controller-->
+        <!--Title-->
         <scene sceneID="vvK-KI-a9A">
             <objects>
                 <tableViewController id="qLv-uf-ZDO" customClass="MenuListViewController" sceneMemberID="viewController">
@@ -407,10 +408,19 @@
                             <outlet property="delegate" destination="qLv-uf-ZDO" id="zNr-3F-wCh"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="Psk-ys-CS3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="m9O-s9-f0y">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="qLv-uf-ZDO" id="gxo-ca-wxj"/>
+                                <segue destination="IQ2-7N-SmI" kind="unwind" identifier="MenuNewItems" unwindAction="savedMenuItems:" id="0nx-Sy-z5z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0Y-iU-JCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IQ2-7N-SmI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1614" y="759"/>
+            <point key="canvasLocation" x="2426" y="759"/>
         </scene>
         <!--Order-->
         <scene sceneID="RI3-Jt-bhI">
@@ -443,22 +453,22 @@
             <point key="canvasLocation" x="466" y="1872"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="m8S-I2-UTZ">
+        <scene sceneID="GcF-8M-Uyz">
             <objects>
-                <navigationController storyboardIdentifier="FoodDetail" automaticallyAdjustsScrollViewInsets="NO" id="cLg-Zz-Ehi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g48-30-i3I" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7MR-5n-lqa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hkQ-GL-WHD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="b3f-Wf-h3i" kind="relationship" relationship="rootViewController" id="4ul-ZP-bX3"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="7H4-VK-VV7"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f7z-AQ-kOo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X5S-7z-QYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="928"/>
+            <point key="canvasLocation" x="313" y="236"/>
         </scene>
     </scenes>
     <resources>

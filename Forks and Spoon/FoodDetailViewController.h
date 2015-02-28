@@ -12,5 +12,7 @@
 
 @property (nonatomic, strong) NSString *name;
 - (IBAction)cancelView:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *menuView;
+@property (strong, nonatomic) IBOutlet UIView *proileView;
 
 @end

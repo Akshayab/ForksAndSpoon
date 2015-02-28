@@ -24,6 +24,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.menuView.layer setCornerRadius:4.0];
+    [self.proileView.layer setCornerRadius:4.0];
+}
+
 /*
 #pragma mark - Navigation
 

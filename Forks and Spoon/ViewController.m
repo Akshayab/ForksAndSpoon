@@ -50,6 +50,23 @@
         
     }
     
+    UIImageView *itemImageView = (UIImageView *)[cell viewWithTag:200];
+    
+    itemImageView.layer.cornerRadius = itemImageView.frame.size.height/2;
+    itemImageView.layer.masksToBounds = YES;
+    itemImageView.layer.borderWidth = 1.0f;
+    itemImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    
+    UIImageView *av = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 277, 58)];
+    UIImageView *back_av = [[UIImageView alloc] initWithFrame:CGRectMake(20, 20, 277, 58)];
+    
+    av.backgroundColor = [UIColor clearColor];
+    av.opaque = NO;
+    av.image = [UIImage imageNamed:@"mexicanfood"];
+    cell.backgroundView = av;
+    cell.selectedBackgroundView = back_av;
+    
     return cell;
     
 }
@@ -58,10 +75,20 @@
     return 200.0;
 }
 
+/*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FoodDetail"];
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
+}*/
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"FoodSegue"]) {
         NSIndexPath *row = [self.mainTableView indexPathForSelectedRow];
         [self.mainTableView deselectRowAtIndexPath:row animated:YES];
+        
+            
 //        FoodDetailViewController *vc = segue.destinationViewController;
 //        NSInteger *row = [[self.mainTableView indexPathForSelectedRow] row];
 //        vc.row = row;

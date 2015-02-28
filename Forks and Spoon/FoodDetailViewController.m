@@ -8,6 +8,7 @@
 
 #import "FoodDetailViewController.h"
 #import "MenuListViewController.h"
+#import "OrderViewController.h"
 
 @interface FoodDetailViewController ()
 
@@ -64,6 +65,15 @@
             NSArray *strings = [self.menuItems valueForKey:@"name"];
             self.foodItemsLabel.text = [strings componentsJoinedByString:@","];
         }
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PlaceOrder"]) {
+        OrderViewController *vc = (OrderViewController *)segue.destinationViewController;
+        vc.cookName = self.cookName.text;
+        vc.date = self.datePicker.date;
+        vc.address = self.address.text;
     }
 }
 @end

@@ -10,4 +10,9 @@
 
 @interface OrderViewController : UIViewController
 
+@property (strong, nonatomic) NSString *cookName;
+@property (strong, nonatomic) NSDate *date;
+@property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) IBOutlet UILabel *orderDescription;
+
 @end

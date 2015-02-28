@@ -24,6 +24,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString *dateString = [dateFormatter stringFromDate:self.date];
+    self.orderDescription.text = [NSString stringWithFormat:@"Congrats! Your order is being cooked by %@. It will be ready at %@ at the location %@", self.cookName, dateString, self.address];
+}
+
 /*
 #pragma mark - Navigation
 

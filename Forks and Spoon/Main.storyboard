@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-mB-ZpL">
-                                <rect key="frame" x="0.0" y="20" width="600" height="563"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-mB-ZpL">
+                                <rect key="frame" x="0.0" y="64" width="600" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="GAY-T6-9jP"/>
@@ -232,7 +232,7 @@
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <datePicker contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="v6Q-1b-GL4">
+                                                    <datePicker contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="v6Q-1b-GL4">
                                                         <rect key="frame" x="0.0" y="43" width="568" height="162"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="KBa-0t-A0k"/>
@@ -264,7 +264,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="lR6-9n-18r" kind="show" id="2F3-fF-K4i"/>
+                                                    <segue destination="lR6-9n-18r" kind="show" identifier="PlaceOrder" id="2F3-fF-K4i"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="omK-7z-p8Y">
@@ -362,6 +362,8 @@
                     <size key="freeformSize" width="600" height="700"/>
                     <connections>
                         <outlet property="addItemsLabel" destination="zJ6-NW-Cpi" id="ZWU-Du-hZg"/>
+                        <outlet property="address" destination="xdI-75-wyg" id="N5c-bL-FGs"/>
+                        <outlet property="cookName" destination="Wr9-n4-6PZ" id="6KH-du-WCZ"/>
                         <outlet property="datePicker" destination="v6Q-1b-GL4" id="v67-Qh-QGH"/>
                         <outlet property="foodItemsLabel" destination="Qi7-5Z-WMy" id="Jfb-uz-rY9"/>
                         <outlet property="menuView" destination="GId-KN-eaA" id="Gvk-an-Y2z"/>
@@ -372,7 +374,7 @@
             </objects>
             <point key="canvasLocation" x="1758" y="928"/>
         </scene>
-        <!--Title-->
+        <!--Menu Items-->
         <scene sceneID="vvK-KI-a9A">
             <objects>
                 <tableViewController id="qLv-uf-ZDO" customClass="MenuListViewController" sceneMemberID="viewController">
@@ -408,7 +410,7 @@
                             <outlet property="delegate" destination="qLv-uf-ZDO" id="zNr-3F-wCh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="Psk-ys-CS3">
+                    <navigationItem key="navigationItem" title="Menu Items" id="Psk-ys-CS3">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="m9O-s9-f0y">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="qLv-uf-ZDO" id="gxo-ca-wxj"/>
@@ -434,8 +436,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order is placed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Cw-ZfS">
-                                <rect key="frame" x="223.5" y="340" width="153.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order is placed" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Cw-ZfS">
+                                <rect key="frame" x="26" y="340" width="548" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -445,8 +447,13 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="EPR-Cw-ZfS" secondAttribute="centerX" id="9KU-ff-luT"/>
                             <constraint firstAttribute="centerY" secondItem="EPR-Cw-ZfS" secondAttribute="centerY" id="NF7-yy-1M7"/>
+                            <constraint firstItem="EPR-Cw-ZfS" firstAttribute="leading" secondItem="V1m-ks-c8Y" secondAttribute="leadingMargin" constant="10" id="gqL-WM-Ewf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EPR-Cw-ZfS" secondAttribute="trailing" constant="10" id="uGB-A1-5eU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="orderDescription" destination="EPR-Cw-ZfS" id="0I0-9n-tx5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMd-L8-19b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

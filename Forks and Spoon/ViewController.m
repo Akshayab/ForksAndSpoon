@@ -65,7 +65,7 @@
 //        FoodDetailViewController *vc = segue.destinationViewController;
 //        NSInteger *row = [[self.mainTableView indexPathForSelectedRow] row];
 //        vc.row = row;
-    }
+    } 
 }
 
 @end

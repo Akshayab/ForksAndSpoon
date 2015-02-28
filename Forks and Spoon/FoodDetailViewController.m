@@ -23,8 +23,11 @@
     // Do any additional setup after loading the view.
     self.menuItems = [[NSMutableArray alloc] init];
 //    [FNSRequest testLocationUrl];
+    self.fetchedCookData = [[NSMutableArray alloc] init];
     AFHTTPRequestOperation *op = [FNSRequest testLocationUrlwithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"The response is %@", responseObject);
+//        NSLog(@"The response is %@", [responseObject valueForKey:@"results"]);
+        self.fetchedCookData = [responseObject valueForKey:@"results"];
+        NSLog(@"%@", [self.fetchedCookData[0] valueForKey:@"menuId"]);
     } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"The error is %@", error);
     }];

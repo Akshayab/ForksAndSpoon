@@ -27,11 +27,11 @@
 
 + (AFHTTPRequestOperation *)testLocationUrlwithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
     
-    NSMutableURLRequest *londonWeather =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/weather?q=London,uk"]];
-    
-    
+    NSMutableURLRequest *londonWeather =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://pure-gorge-1132.herokuapp.com/get_cook"]];
+    [londonWeather setHTTPMethod:@"GET"];
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:londonWeather];
     op.responseSerializer = [AFJSONResponseSerializer serializer];
+//    op.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     [op setCompletionBlockWithSuccess:successBlock failure:failureBlock];
     return op;
 }

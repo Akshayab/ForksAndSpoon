@@ -9,6 +9,8 @@
 #import "FoodDetailViewController.h"
 #import "MenuListViewController.h"
 #import "OrderViewController.h"
+#import "FNSRequest.h"
+#import "AppDelegate.h"
 
 @interface FoodDetailViewController ()
 
@@ -20,6 +22,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.menuItems = [[NSMutableArray alloc] init];
+//    [FNSRequest testLocationUrl];
+    AFHTTPRequestOperation *op = [FNSRequest testLocationUrlwithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"The response is %@", responseObject);
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"The error is %@", error);
+    }];
+    
+    NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+    [operationQueue addOperation:op];
 }
 
 - (void)didReceiveMemoryWarning {

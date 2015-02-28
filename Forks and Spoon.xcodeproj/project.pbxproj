@@ -191,6 +191,7 @@
 				TargetAttributes = {
 					80E5E1B41AA187B400DE5E62 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = FPL26UZQT2;
 					};
 					80E5E1D01AA187B500DE5E62 = {
 						CreatedOnToolsVersion = 6.1.1;

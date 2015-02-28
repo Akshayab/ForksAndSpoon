@@ -22,9 +22,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.fetchedMenuItems = [[NSMutableArray alloc] initWithArray: @[@{@"name":@"akshay"},
-                                                              @{@"name":@"Vaish"},
-                                                              @{@"name":@"Aditya"}]];
+    self.fetchedMenuItems = [[NSMutableArray alloc] initWithArray: @[@{@"name":@"Burrito"},
+                                                              @{@"name":@"Fried Rice"},
+                                                              @{@"name":@"Butter Chicken"},
+                                                                     @{@"name":@"Fancy Chicken"}]];
 }
 
 - (void)didReceiveMemoryWarning {

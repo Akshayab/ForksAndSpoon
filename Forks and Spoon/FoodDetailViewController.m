@@ -68,12 +68,27 @@
     }
 }
 
+//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+//    if ([identifier isEqualToString:@"PlaceOrder"]) {
+//        if (self.menuItems.count) {
+//            return YES;
+//        }
+//    }
+//    return NO;
+//}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PlaceOrder"]) {
         OrderViewController *vc = (OrderViewController *)segue.destinationViewController;
         vc.cookName = self.cookName.text;
         vc.date = self.datePicker.date;
         vc.address = self.address.text;
+        NSArray *strings = [self.menuItems valueForKey:@"name"];
+        vc.menuItemsString = [strings componentsJoinedByString:@","];
+    }
+    else if ([segue.identifier isEqualToString:@"MenuItems"]) {
+        MenuListViewController *vc = (MenuListViewController *)segue.destinationViewController;
+        vc.menuItems = self.menuItems;
     }
 }
 @end

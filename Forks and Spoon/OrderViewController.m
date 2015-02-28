@@ -28,7 +28,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"HH:mm"];
     NSString *dateString = [dateFormatter stringFromDate:self.date];
-    self.orderDescription.text = [NSString stringWithFormat:@"Congrats! Your order is being cooked by %@. It will be ready at %@ at the location %@", self.cookName, dateString, self.address];
+    self.orderDescription.text = [NSString stringWithFormat:@"Congrats! Your order is being cooked by %@. He will be cooking %@. It will be ready at %@ at the location %@", self.cookName, self.menuItemsString, dateString, self.address];
 }
 
 /*

@@ -15,6 +15,10 @@
 @property (strong, nonatomic) IBOutlet UIView *menuView;
 @property (strong, nonatomic) IBOutlet UIView *proileView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UILabel *addItemsLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *foodItemsLabel;
+
+@property (strong, nonatomic) NSMutableArray *menuItems;
 
 @end

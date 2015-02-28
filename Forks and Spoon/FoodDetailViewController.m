@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.menuItems = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,8 +29,11 @@
 {
     [self.menuView.layer setCornerRadius:4.0];
     [self.proileView.layer setCornerRadius:4.0];
-    [self.datePicker setDate:[NSDate date]];
     self.datePicker.minimumDate = [NSDate date];
+    if (!self.menuItems.count) {
+        self.addItemsLabel.hidden = NO;
+        self.foodItemsLabel.hidden = YES;
+    }
 }
 
 /*

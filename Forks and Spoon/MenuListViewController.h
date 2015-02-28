@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuListViewController : UITableViewController
+@property (strong, nonatomic) IBOutlet UILabel *someLabel;
 
+@property (strong, nonatomic) NSMutableArray *menuItems;
 @end

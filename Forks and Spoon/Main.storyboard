@@ -179,7 +179,19 @@
                                                 <rect key="frame" x="8" y="10" width="552" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfT-qF-kcY">
-                                                        <rect key="frame" x="55" y="14" width="43.5" height="20.5"/>
+                                                        <rect key="frame" x="15" y="14" width="43.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burrito, Taco, Noodles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-5Z-WMy">
+                                                        <rect key="frame" x="15" y="55" width="171" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add items to your menu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJ6-NW-Cpi">
+                                                        <rect key="frame" x="159.5" y="50.5" width="234.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -196,14 +208,18 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="ctc-xg-LBE" firstAttribute="width" secondItem="GId-KN-eaA" secondAttribute="width" id="0CJ-2i-apB"/>
-                                                    <constraint firstItem="sfT-qF-kcY" firstAttribute="leading" secondItem="GId-KN-eaA" secondAttribute="leading" constant="55" id="BoP-wL-mzX"/>
+                                                    <constraint firstItem="Qi7-5Z-WMy" firstAttribute="leading" secondItem="GId-KN-eaA" secondAttribute="leading" constant="15" id="4c5-0r-ID5"/>
+                                                    <constraint firstItem="sfT-qF-kcY" firstAttribute="leading" secondItem="GId-KN-eaA" secondAttribute="leading" constant="15" id="BoP-wL-mzX"/>
                                                     <constraint firstAttribute="centerX" secondItem="ctc-xg-LBE" secondAttribute="centerX" id="CU3-fo-vjJ"/>
+                                                    <constraint firstItem="Qi7-5Z-WMy" firstAttribute="top" secondItem="GId-KN-eaA" secondAttribute="top" constant="55" id="Dtl-CW-o67"/>
                                                     <constraint firstAttribute="height" constant="120" id="MlM-Y1-vSw"/>
                                                     <constraint firstItem="ctc-xg-LBE" firstAttribute="height" secondItem="GId-KN-eaA" secondAttribute="height" id="ecG-qv-7bx"/>
+                                                    <constraint firstAttribute="centerX" secondItem="zJ6-NW-Cpi" secondAttribute="centerX" id="f80-vT-gbW"/>
                                                     <constraint firstItem="sfT-qF-kcY" firstAttribute="top" secondItem="GId-KN-eaA" secondAttribute="top" constant="14" id="mIc-dV-1HQ"/>
                                                     <constraint firstItem="ctc-xg-LBE" firstAttribute="top" secondItem="GId-KN-eaA" secondAttribute="top" id="o9U-ss-iYK"/>
                                                     <constraint firstItem="ctc-xg-LBE" firstAttribute="leading" secondItem="GId-KN-eaA" secondAttribute="leading" id="rkn-Na-ybS"/>
                                                     <constraint firstAttribute="centerY" secondItem="ctc-xg-LBE" secondAttribute="centerY" id="wra-lY-Wti"/>
+                                                    <constraint firstAttribute="centerY" secondItem="zJ6-NW-Cpi" secondAttribute="centerY" id="z5e-pP-yJ7"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIV-ER-Axm">
@@ -344,7 +360,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="700"/>
                     <connections>
+                        <outlet property="addItemsLabel" destination="zJ6-NW-Cpi" id="ZWU-Du-hZg"/>
                         <outlet property="datePicker" destination="v6Q-1b-GL4" id="v67-Qh-QGH"/>
+                        <outlet property="foodItemsLabel" destination="Qi7-5Z-WMy" id="Jfb-uz-rY9"/>
                         <outlet property="menuView" destination="GId-KN-eaA" id="Gvk-an-Y2z"/>
                         <outlet property="proileView" destination="HaQ-xm-F25" id="yTp-uy-Mh4"/>
                     </connections>
@@ -362,11 +380,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vBS-3y-mW3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="vBS-3y-mW3" customClass="MenuTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vBS-3y-mW3" id="tsT-CQ-1do">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5d-UO-K1X">
+                                            <rect key="frame" x="23" y="23" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="B5d-UO-K1X" firstAttribute="leading" secondItem="tsT-CQ-1do" secondAttribute="leadingMargin" constant="15" id="cTb-s8-4WG"/>
+                                        <constraint firstItem="B5d-UO-K1X" firstAttribute="top" secondItem="tsT-CQ-1do" secondAttribute="topMargin" constant="15" id="soA-Ci-DFj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="B5d-UO-K1X" id="c79-JF-b6i"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -391,8 +424,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your order is placed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Cw-ZfS">
-                                <rect key="frame" x="223" y="285" width="154" height="130"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your order is placed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-Cw-ZfS">
+                                <rect key="frame" x="223.5" y="340" width="153.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>

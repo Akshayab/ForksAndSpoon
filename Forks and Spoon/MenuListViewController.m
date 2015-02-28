@@ -1,18 +1,18 @@
 //
-//  FoodDetailViewController.m
+//  MenuListViewController.m
 //  Forks and Spoon
 //
 //  Created by Akshay Budhkar on 2015-02-28.
 //  Copyright (c) 2015 Akshay Budhkar. All rights reserved.
 //
 
-#import "FoodDetailViewController.h"
+#import "MenuListViewController.h"
 
-@interface FoodDetailViewController ()
+@interface MenuListViewController ()
 
 @end
 
-@implementation FoodDetailViewController
+@implementation MenuListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,14 +22,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.menuView.layer setCornerRadius:4.0];
-    [self.proileView.layer setCornerRadius:4.0];
-    [self.datePicker setDate:[NSDate date]];
-    self.datePicker.minimumDate = [NSDate date];
 }
 
 /*
@@ -42,10 +34,4 @@
 }
 */
 
-- (IBAction)cancelView:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-        
-    }];
-}
 @end

@@ -14,5 +14,7 @@
 - (IBAction)cancelView:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *menuView;
 @property (strong, nonatomic) IBOutlet UIView *proileView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+
 
 @end

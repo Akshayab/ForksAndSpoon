@@ -22,18 +22,78 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.menuItems = [[NSMutableArray alloc] init];
-//    [FNSRequest testLocationUrl];
     self.fetchedCookData = [[NSMutableArray alloc] init];
-    AFHTTPRequestOperation *op = [FNSRequest testLocationUrlwithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"The response is %@", [responseObject valueForKey:@"results"]);
-        self.fetchedCookData = [responseObject valueForKey:@"results"];
-        NSLog(@"%@", [self.fetchedCookData[0] valueForKey:@"menuId"]);
+    
+    // Post the cook
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    NSString *startTimeString = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *endTimeString = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:3600]];
+    
+    AFHTTPRequestOperation *postCookOp = [FNSRequest createCookForUserId:@"kVPzQNpR0h" withStartTimeString:startTimeString withEndTimeString:endTimeString withCapacityRemaining:@2 withCategory:@"Indian" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"The response is %@", responseObject);
     } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"The error is %@", error);
     }];
     
+    // Post Food Item
+    AFHTTPRequestOperation *postFoodsOp = [FNSRequest createFoodItemForName:@"1212nfdglbngn" withDescription:@"some great ass food" withRestriction:@"None" withSpiceLevel:@1 withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"%@ ", responseObject);
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"The error is %@", error);
+    }];
+    
+    // Post Menu Item
+    AFHTTPRequestOperation *postMenuOp = [FNSRequest createMenuForFoodItems:@[@"PH7QpmHYwz"] cookId:@"40MOD4vEpz" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+       
+        NSLog(@"%@ ", responseObject);
+        
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"The error is %@", error);
+    }];
+    
+    // Post Order Item
+    AFHTTPRequestOperation *postOrderOp = [FNSRequest createOrderForCookId:@"40MOD4vEpz" withHungryId:@"kVPzQNpR0h" withSelectedFoodItems:@[@"PH7QpmHYwz"] withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"%@ ", responseObject);
+        
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"The error is %@", error);
+        
+    }];
+    
+    // Get Cook Item
+    AFHTTPRequestOperation *getCooksOp = [FNSRequest getCooksWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"The response is %@", responseObject);
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"The error is %@", error);
+    }];
+    
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
-    [operationQueue addOperation:op];
+    
+    // Get Menu Items
+    AFHTTPRequestOperation *getMenusOp = [FNSRequest getMenusWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"The response is %@", responseObject);
+        
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"the error is %@", error);
+    }];
+    
+    
+    
+    // Add operations
+    
+    [operationQueue addOperation:getCooksOp];
+    [operationQueue addOperation:getMenusOp];
+    [operationQueue addOperation:postFoodsOp];
+    [operationQueue addOperation:postCookOp];
+    [operationQueue addOperation:postMenuOp];
+    [operationQueue addOperation:postOrderOp];
 }
 
 - (void)didReceiveMemoryWarning {

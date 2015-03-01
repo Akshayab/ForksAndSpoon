@@ -11,7 +11,32 @@
 
 @interface FNSRequest : NSObject
 
-+ (NSDictionary *)testLocationUrl;
-+ (AFHTTPRequestOperation *)testLocationUrlwithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
++ (AFHTTPRequestOperation *)getCooksWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
+
++ (AFHTTPRequestOperation *)getMenusWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
+
++ (AFHTTPRequestOperation *)getOrdersWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
+
++ (AFHTTPRequestOperation *)createFoodItemForName:(NSString *)name
+                                  withDescription:(NSString *)description
+                                  withRestriction:(NSString *)restriction
+                                   withSpiceLevel:(NSNumber *)spiceLevel
+                                      withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
+
++ (AFHTTPRequestOperation *)createCookForUserId:(NSString *)userId
+                            withStartTimeString:(NSString *)startTime
+                              withEndTimeString:(NSString *)endTime
+                          withCapacityRemaining:(NSNumber *)capacity
+                                   withCategory:(NSString *)category
+                                    withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
+
++ (AFHTTPRequestOperation *)createOrderForCookId:(NSString *)cookId
+                                    withHungryId:(NSString *)hungryId
+                           withSelectedFoodItems:(NSArray *)foodItems
+                                     withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
+
++ (AFHTTPRequestOperation *)createMenuForFoodItems:(NSArray *)foodItems
+                                            cookId:(NSString *)cookId
+                                       withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
 @end

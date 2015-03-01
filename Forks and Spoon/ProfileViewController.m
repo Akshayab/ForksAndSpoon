@@ -24,6 +24,11 @@
     self.itemImageView.layer.masksToBounds = YES;
     self.itemImageView.layer.borderWidth = 3.0f;
     self.itemImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.textField.delegate = self;
+    self.addressField.delegate = self;
+    self.cuisine.delegate = self;
+    self.peopleRemaining.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +45,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)touchesBegan:(NSSet *) touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"MakeMenu"]) {

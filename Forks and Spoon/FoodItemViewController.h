@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FoodItemViewController : UIViewController
+@interface FoodItemViewController : UIViewController <UITextFieldDelegate>
 - (IBAction)confirmButtonPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UITextView *foodDescriptionField;

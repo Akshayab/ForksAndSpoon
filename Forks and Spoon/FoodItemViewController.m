@@ -18,6 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.textField.delegate = self;
+    self.foodDescriptionField.delegate = self;
+    self.priceLabel.delegate = self;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -35,6 +39,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)touchesBegan:(NSSet *) touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"foodItem"]) {

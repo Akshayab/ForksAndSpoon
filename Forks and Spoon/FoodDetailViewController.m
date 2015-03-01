@@ -122,7 +122,7 @@
         vc.menuItemsString = [strings componentsJoinedByString:@","];
         
         // Post Order Item
-        AFHTTPRequestOperation *postOrderOp = [FNSRequest createOrderForCookId:@"eWmn7hZ5ue" withHungryId:@"kVPzQNpR0h" withSelectedFoodItems:@[@"b5n8HUrL4C"] withTwilioMessage:@"Hello buddy" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        AFHTTPRequestOperation *postOrderOp = [FNSRequest createOrderForCookId:@"eWmn7hZ5ue" withHungryId:@"kVPzQNpR0h" withSelectedFoodItems:@[@"b5n8HUrL4C"] withTwilioMessage:@"Akshay has placed an order for Burrito, butter chicken for 6 pm tonight! Happy cooking" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             NSLog(@"%@ ", responseObject);
             

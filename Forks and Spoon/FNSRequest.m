@@ -25,9 +25,9 @@
     return op;
 }
 
-+ (AFHTTPRequestOperation *)getMenusWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
++ (AFHTTPRequestOperation *)getMenusForMenuId:(NSString *)menuId WithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
     
-    NSMutableURLRequest *londonWeather =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://pure-gorge-1132.herokuapp.com/get_menu"]];
+    NSMutableURLRequest *londonWeather =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://pure-gorge-1132.herokuapp.com/get_menu/%@", menuId]]];
     [londonWeather setHTTPMethod:@"GET"];
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:londonWeather];
     op.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -35,6 +35,19 @@
     [op setCompletionBlockWithSuccess:successBlock failure:failureBlock];
     return op;
 }
+
++ (AFHTTPRequestOperation *)getFoodForId:(NSString *)foodId WithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock
+{
+    
+    NSMutableURLRequest *londonWeather =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://pure-gorge-1132.herokuapp.com/get_food/%@", foodId]]];
+    [londonWeather setHTTPMethod:@"GET"];
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:londonWeather];
+    op.responseSerializer = [AFJSONResponseSerializer serializer];
+    //    op.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    [op setCompletionBlockWithSuccess:successBlock failure:failureBlock];
+    return op;
+}
+
 + (AFHTTPRequestOperation *)getOrdersWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
     
     NSMutableURLRequest *londonWeather =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://pure-gorge-1132.herokuapp.com/get_order"]];
@@ -50,11 +63,13 @@
                                   withDescription:(NSString *)description
                                   withRestriction:(NSString *)restriction
                                    withSpiceLevel:(NSNumber *)spiceLevel
+                                         forPrice:(NSNumber *)price
                                       withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
     NSDictionary *dataDictionary = @{@"name": name,
                                      @"description":description,
                                      @"dietaryRestriction": restriction,
-                                     @"spicyLevel": spiceLevel};
+                                     @"spicyLevel": spiceLevel,
+                                     @"price": price};
     
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://pure-gorge-1132.herokuapp.com/create_food"]];
     [request setHTTPMethod:@"POST"];

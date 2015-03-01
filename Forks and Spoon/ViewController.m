@@ -50,7 +50,7 @@
     if (!self.fetchedCookedArray) {
         return 5;
     }
-    return self.fetchedCookedArray.count + 2;
+    return self.fetchedCookedArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

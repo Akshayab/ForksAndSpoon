@@ -13,7 +13,7 @@
 
 + (AFHTTPRequestOperation *)getCooksWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
-+ (AFHTTPRequestOperation *)getMenusWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
++ (AFHTTPRequestOperation *)getMenusForMenuId:(NSString *)menuId WithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
 + (AFHTTPRequestOperation *)getOrdersWithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
@@ -21,6 +21,7 @@
                                   withDescription:(NSString *)description
                                   withRestriction:(NSString *)restriction
                                    withSpiceLevel:(NSNumber *)spiceLevel
+                                         forPrice:(NSNumber *)price
                                       withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
 + (AFHTTPRequestOperation *)createCookForUserId:(NSString *)userId
@@ -39,4 +40,5 @@
                                             cookId:(NSString *)cookId
                                        withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
++ (AFHTTPRequestOperation *)getFoodForId:(NSString *)foodId WithSuccessBlock:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 @end

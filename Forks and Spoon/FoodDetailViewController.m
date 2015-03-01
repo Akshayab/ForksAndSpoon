@@ -37,7 +37,7 @@
     }];
     
     // Post Food Item
-    AFHTTPRequestOperation *postFoodsOp = [FNSRequest createFoodItemForName:@"1212nfdglbngn" withDescription:@"some great ass food" withRestriction:@"None" withSpiceLevel:@1 withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *postFoodsOp = [FNSRequest createFoodItemForName:@"1212nfdglbngn" withDescription:@"some great ass food" withRestriction:@"None" withSpiceLevel:@1 forPrice:@4.99 withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"%@ ", responseObject);
     } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -56,7 +56,7 @@
     }];
     
     // Post Order Item
-    AFHTTPRequestOperation *postOrderOp = [FNSRequest createOrderForCookId:@"40MOD4vEpz" withHungryId:@"kVPzQNpR0h" withSelectedFoodItems:@[@"PH7QpmHYwz"] withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *postOrderOp = [FNSRequest createOrderForCookId:@"bAK4rOU72q" withHungryId:@"kVPzQNpR0h" withSelectedFoodItems:@[@"b5n8HUrL4C"] withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"%@ ", responseObject);
         
@@ -70,18 +70,27 @@
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
     
     // Get Menu Items
-    AFHTTPRequestOperation *getMenusOp = [FNSRequest getMenusWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    AFHTTPRequestOperation *getMenusOp = [FNSRequest getMenusForMenuId:self.cookId WithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"The response is %@", responseObject);
         
     } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
         NSLog(@"the error is %@", error);
     }];
     
+    AFHTTPRequestOperation *getFoodOp = [FNSRequest getFoodForId:@"tHpmiB6Afb" WithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        
+    }];
     
     
     // Add operations
 //    [operationQueue addOperation:getMenusOp];
-    [operationQueue addOperation:postFoodsOp];
+//    [operationQueue addOperation:postFoodsOp];
+    [operationQueue addOperation:getFoodOp];
 //    [operationQueue addOperation:postCookOp];
 //    [operationQueue addOperation:postMenuOp];
 //    [operationQueue addOperation:postOrderOp];

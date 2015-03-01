@@ -685,7 +685,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Gyo-dN-FHP" kind="show" id="PlC-oF-Nlv"/>
+                                    <segue destination="Gyo-dN-FHP" kind="show" identifier="MakeMenu" id="PlC-oF-Nlv"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BQO-90-yVY" userLabel="Name Field">
@@ -816,7 +816,14 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addressField" destination="qaG-PP-BzH" id="fKQ-Dg-Yde"/>
+                        <outlet property="continueButtonPressed" destination="Tht-7L-bIQ" id="a4U-Hw-Beb"/>
+                        <outlet property="cuisine" destination="BQO-90-yVY" id="MQv-ra-8xW"/>
+                        <outlet property="endTime" destination="aie-e9-vPP" id="gXr-Dd-FIi"/>
                         <outlet property="itemImageView" destination="UKm-fI-54j" id="TNt-i3-Cwp"/>
+                        <outlet property="peopleRemaining" destination="acq-9u-uDz" id="ze5-5z-xVT"/>
+                        <outlet property="startTime" destination="PHF-AF-yks" id="0O3-wC-XAr"/>
+                        <outlet property="textField" destination="yjZ-WF-xCg" id="3GH-57-UT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4G-cT-cUv" userLabel="First Responder" sceneMemberID="firstResponder"/>

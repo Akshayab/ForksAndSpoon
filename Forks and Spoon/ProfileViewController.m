@@ -7,6 +7,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "MakeMenuViewController.h"
+#import "FNSRequest.h"
 
 @interface ProfileViewController ()
 
@@ -22,13 +24,6 @@
     self.itemImageView.layer.masksToBounds = YES;
     self.itemImageView.layer.borderWidth = 1.0f;
     self.itemImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-
-    
-}
-
-- (void) viewDidAppear{
-    
-    NSLog(@"HEYO");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,4 +41,27 @@
 }
 */
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"MakeMenu"]) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+        NSString *startTimeString = [dateFormatter stringFromDate:self.startTime.date];
+        NSString *endTimeString = [dateFormatter stringFromDate:self.endTime.date];
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterDecimalStyle;
+        NSNumber *numberOfPeople = [f numberFromString:self.peopleRemaining.text];
+        
+        AFHTTPRequestOperation *postCookOp = [FNSRequest createCookForUserId:@"kVPzQNpR0h" withStartTimeString:startTimeString withEndTimeString:endTimeString withCapacityRemaining:numberOfPeople withCategory:self.cuisine.text withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"The response is %@", responseObject);
+            MakeMenuViewController *vc = (MakeMenuViewController *)[segue destinationViewController];
+            vc.cookId = responseObject;
+            vc.cookIdAvailable = YES;
+        } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"The error is %@", error);
+        }];
+        
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        [queue addOperation:postCookOp];
+    }
+}
 @end

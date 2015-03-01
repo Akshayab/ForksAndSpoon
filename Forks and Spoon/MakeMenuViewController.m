@@ -21,7 +21,7 @@
     self.table.delegate = self;
     self.table.dataSource = self;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
+    self.cookIdAvailable = NO;
 }
 
 - (void)didReceiveMemoryWarning {

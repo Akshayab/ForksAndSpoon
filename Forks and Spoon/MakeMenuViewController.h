@@ -12,5 +12,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
-
+@property (strong, nonatomic) NSString *cookId;
+@property (nonatomic, assign) BOOL cookIdAvailable;
 @end

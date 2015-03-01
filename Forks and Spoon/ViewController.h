@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *mainTableView;
 @property (strong, nonatomic) NSString *name;
-
+@property (strong, nonatomic) NSMutableArray *fetchedCookData;
 @end
 

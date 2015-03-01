@@ -20,6 +20,8 @@
     
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 

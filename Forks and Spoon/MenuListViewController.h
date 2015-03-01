@@ -13,5 +13,7 @@
 - (IBAction)doneButtonPressed:(id)sender;
 
 @property (strong, nonatomic) NSMutableArray *menuItems;
+@property (weak, nonatomic) IBOutlet UILabel *itemInfo;
+@property (weak, nonatomic) IBOutlet UILabel *price;
 @property (strong, nonatomic) NSMutableArray *fetchedMenuItems;
 @end

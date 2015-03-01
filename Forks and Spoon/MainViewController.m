@@ -24,6 +24,8 @@
     self.mainTableView.dataSource = self;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.foodImages = @[@"mexicanfood", @"food2", @"food3"];
+    self.profileImages = @[@"Face", @"face2", @"face3", @"face4"];
+
 
     // Do any additional setup after loading the view, typically from a nib.
     self.fetchedCookedArray = [[NSMutableArray alloc] init];
@@ -69,8 +71,11 @@
     }
     
     cell.nameLabel.text = [NSString stringWithFormat:@"%@ is", [self.fetchedCookedArray[indexPath.row] valueForKey:@"name"]];
-    cell.makingLabel.text = [NSString stringWithFormat:@"is making %@", [self.fetchedCookedArray[indexPath.row] valueForKey:@"category"]];
+    cell.makingLabel.text = [NSString stringWithFormat:@"making %@", [self.fetchedCookedArray[indexPath.row] valueForKey:@"category"]];
+    cell.makingLabel.font = [UIFont fontWithName:@"Helvetica Neue-Bold" size:16];
     UIImageView *itemImageView = (UIImageView *)[cell viewWithTag:200];
+    
+    itemImageView.image = [UIImage imageNamed:self.profileImages[indexPath.row % 4]];
     
     itemImageView.layer.cornerRadius = itemImageView.frame.size.height/2;
     itemImageView.layer.masksToBounds = YES;

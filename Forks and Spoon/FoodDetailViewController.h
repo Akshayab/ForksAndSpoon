@@ -22,5 +22,7 @@
 @property (strong, nonatomic) NSMutableArray *menuItems;
 @property (strong, nonatomic) NSMutableDictionary *fetchedMenuData;
 @property (strong, nonatomic) NSMutableArray *fetchedCookData;
+@property (weak, nonatomic) IBOutlet UIImageView *Profilepic;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 
 @end

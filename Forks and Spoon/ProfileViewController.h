@@ -10,5 +10,7 @@
 
 @interface ProfileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *Date1;
+@property (weak, nonatomic) IBOutlet UIDatePicker *Date2;
 
 @end

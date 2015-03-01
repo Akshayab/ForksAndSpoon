@@ -56,7 +56,7 @@
     
     itemImageView.layer.cornerRadius = itemImageView.frame.size.height/2;
     itemImageView.layer.masksToBounds = YES;
-    itemImageView.layer.borderWidth = 1.0f;
+    itemImageView.layer.borderWidth = 3.0f;
     itemImageView.layer.borderColor = [UIColor whiteColor].CGColor;
     
     

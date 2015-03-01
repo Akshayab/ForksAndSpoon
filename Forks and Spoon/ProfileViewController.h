@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *cuisine;
 @property (strong, nonatomic) IBOutlet UITextField *peopleRemaining;
 @property (strong, nonatomic) IBOutlet UIDatePicker *startTime;
+@property (weak, nonatomic) IBOutlet UIDatePicker *Date1;
+@property (weak, nonatomic) IBOutlet UIDatePicker *Date2;
 
 @property (strong, nonatomic) IBOutlet UIButton *continueButtonPressed;
 @property (strong, nonatomic) IBOutlet UIDatePicker *endTime;

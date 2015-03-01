@@ -45,6 +45,13 @@
     // Add operations
     [operationQueue addOperation:getMenuOp];
     
+    
+    self.Profilepic.layer.cornerRadius = _Profilepic.frame.size.height/2;
+    self.Profilepic.layer.masksToBounds = YES;
+    self.Profilepic.layer.borderWidth = 1.2f;
+    self.Profilepic.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.scrollview.frame = CGRectMake(0, -70, 320, 800);
+    self.scrollview.contentSize = CGSizeMake(320, 800);
 }
 
 - (void)didReceiveMemoryWarning {

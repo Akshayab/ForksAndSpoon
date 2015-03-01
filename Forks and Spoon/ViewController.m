@@ -21,6 +21,8 @@
     
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
     // Do any additional setup after loading the view, typically from a nib.
     self.fetchedCookData = [[NSMutableArray alloc] init];
     // Get Cook Item

@@ -29,6 +29,7 @@
                               withEndTimeString:(NSString *)endTime
                           withCapacityRemaining:(NSNumber *)capacity
                                    withCategory:(NSString *)category
+                                        forName:(NSString *)name
                                     withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock;
 
 + (AFHTTPRequestOperation *)createOrderForCookId:(NSString *)cookId

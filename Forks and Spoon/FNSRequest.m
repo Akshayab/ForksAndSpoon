@@ -87,12 +87,14 @@
                                   withEndTimeString:(NSString *)endTime
                           withCapacityRemaining:(NSNumber *)capacity
                                    withCategory:(NSString *)category
+                                        forName:(NSString *)name
                                       withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
     NSDictionary *dataDictionary = @{@"userId": userId,
                                      @"capacityRemaining":capacity,
                                      @"startTime": startTime,
                                      @"endTime": endTime,
-                                     @"category": category};
+                                     @"category": category,
+                                     @"name": name};
     
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://pure-gorge-1132.herokuapp.com/create_cook"]];
     [request setHTTPMethod:@"POST"];
@@ -129,7 +131,8 @@
                                       withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
     NSDictionary *dataDictionary = @{@"cookId": cookId,
                                      @"hungryId":hungryId,
-                                     @"selectedFoodItems": foodItems};
+                                     @"selectedFoodItems": foodItems,
+                                     @"twilioMessage": twilioMessage};
     
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://pure-gorge-1132.herokuapp.com/create_order"]];
     [request setHTTPMethod:@"POST"];

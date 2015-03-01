@@ -51,7 +51,7 @@
         f.numberStyle = NSNumberFormatterDecimalStyle;
         NSNumber *numberOfPeople = [f numberFromString:self.peopleRemaining.text];
         
-        AFHTTPRequestOperation *postCookOp = [FNSRequest createCookForUserId:@"kVPzQNpR0h" withStartTimeString:startTimeString withEndTimeString:endTimeString withCapacityRemaining:numberOfPeople withCategory:self.cuisine.text withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        AFHTTPRequestOperation *postCookOp = [FNSRequest createCookForUserId:@"kVPzQNpR0h" withStartTimeString:startTimeString withEndTimeString:endTimeString withCapacityRemaining:numberOfPeople withCategory:self.cuisine.text forName:self.textField.text withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"The response is %@", responseObject);
             MakeMenuViewController *vc = (MakeMenuViewController *)[segue destinationViewController];
             vc.cookId = responseObject;

@@ -24,47 +24,7 @@
     self.menuItems = [[NSMutableArray alloc] init];
     self.fetchedCookData = [[NSMutableArray alloc] init];
     self.menuItem = [[NSDictionary alloc] init];
-    // Post the cook
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
-    NSString *startTimeString = [dateFormatter stringFromDate:[NSDate date]];
-    NSString *endTimeString = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:3600]];
     
-    AFHTTPRequestOperation *postCookOp = [FNSRequest createCookForUserId:@"kVPzQNpR0h" withStartTimeString:startTimeString withEndTimeString:endTimeString withCapacityRemaining:@2 withCategory:@"Indian" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"The response is %@", responseObject);
-    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"The error is %@", error);
-    }];
-    
-    // Post Food Item
-    AFHTTPRequestOperation *postFoodsOp = [FNSRequest createFoodItemForName:@"1212nfdglbngn" withDescription:@"some great ass food" withRestriction:@"None" withSpiceLevel:@1 forPrice:@4.99 withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"%@ ", responseObject);
-    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSLog(@"The error is %@", error);
-    }];
-    
-    // Post Menu Item
-    AFHTTPRequestOperation *postMenuOp = [FNSRequest createMenuForFoodItems:@[@"b5n8HUrL4C"] cookId:@"bAK4rOU72q" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-       
-        NSLog(@"%@ ", responseObject);
-        
-    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSLog(@"The error is %@", error);
-    }];
-    
-    // Post Order Item
-    AFHTTPRequestOperation *postOrderOp = [FNSRequest createOrderForCookId:@"bAK4rOU72q" withHungryId:@"kVPzQNpR0h" withSelectedFoodItems:@[@"b5n8HUrL4C"] withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"%@ ", responseObject);
-        
-    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSLog(@"The error is %@", error);
-        
-    }];
     
     
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
@@ -81,21 +41,10 @@
         NSLog(@"the error is %@", error);
     }];
     
-    AFHTTPRequestOperation *getFoodOp = [FNSRequest getFoodForId:@"tHpmiB6Afb" WithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", responseObject);
-    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        
-    }];
-    
     
     // Add operations
     [operationQueue addOperation:getMenuOp];
-//    [operationQueue addOperation:postFoodsOp];
-//    [operationQueue addOperation:getFoodOp];
-//    [operationQueue addOperation:postCookOp];
-//    [operationQueue addOperation:postMenuOp];
-//    [operationQueue addOperation:postOrderOp];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -164,6 +113,20 @@
         vc.address = self.address.text;
         NSArray *strings = [self.menuItems valueForKey:@"name"];
         vc.menuItemsString = [strings componentsJoinedByString:@","];
+        
+        // Post Order Item
+        AFHTTPRequestOperation *postOrderOp = [FNSRequest createOrderForCookId:@"eWmn7hZ5ue" withHungryId:@"kVPzQNpR0h" withSelectedFoodItems:@[@"b5n8HUrL4C"] withTwilioMessage:@"Hello buddy" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSLog(@"%@ ", responseObject);
+            
+        } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            NSLog(@"The error is %@", error);
+            
+        }];
+        NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+        [operationQueue addOperation:postOrderOp];
+        
     }
     else if ([segue.identifier isEqualToString:@"MenuItems"]) {
         MenuListViewController *vc = (MenuListViewController *)segue.destinationViewController;

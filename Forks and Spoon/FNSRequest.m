@@ -124,7 +124,8 @@
 
 + (AFHTTPRequestOperation *)createOrderForCookId:(NSString *)cookId
                                   withHungryId:(NSString *)hungryId
-                                  withSelectedFoodItems:(NSArray *)foodItems
+                           withSelectedFoodItems:(NSArray *)foodItems
+                               withTwilioMessage:(NSString *)twilioMessage
                                       withSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))successBlock withFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failureBlock {
     NSDictionary *dataDictionary = @{@"cookId": cookId,
                                      @"hungryId":hungryId,

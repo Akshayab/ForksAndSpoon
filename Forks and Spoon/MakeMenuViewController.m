@@ -10,6 +10,7 @@
 #import "MenuItemsCell.h"
 #import "FoodItemViewController.h"
 #import "FNSRequest.h"
+#import "MainViewController.h"
 
 @interface MakeMenuViewController ()
 
@@ -25,6 +26,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.cookIdAvailable = NO;
     self.fetchedFoodItems = [[NSMutableArray alloc] init];
+    self.fetechedFoodItemsDescriptions = [[NSMutableArray alloc] init];
+    self.fetchedFoodItemNames = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,8 +51,8 @@
     MenuItemsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.FoodName.text = @"Food Name";
-    cell.FoodInfo.text = @"Food Information";
+    cell.FoodName.text = self.fetchedFoodItemNames[indexPath.row];
+    cell.FoodInfo.text = self.fetechedFoodItemsDescriptions[indexPath.row];
     
     return cell;
 }
@@ -58,6 +61,10 @@
     if ([segue.identifier isEqualToString:@"addFoodItem"]) {
 
         
+    }
+    else if ([segue.identifier isEqualToString:@"addMenuItem"]){
+        MainViewController *vc = (MainViewController *)[segue destinationViewController];
+        [vc.mainTableView reloadData];
     }
 }
 
@@ -86,7 +93,6 @@
         NSOperationQueue *queue = [[NSOperationQueue alloc] init];
         [queue addOperation:op];
     }
-    
     
 }
 @end

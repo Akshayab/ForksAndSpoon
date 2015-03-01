@@ -8,7 +8,7 @@
         <!--Dine-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -565,6 +565,7 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5S-7z-QYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DfL-Ug-sCZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="313" y="236"/>
         </scene>
@@ -1188,6 +1189,7 @@
                                         </state>
                                         <connections>
                                             <action selector="confirmButtonPressed:" destination="Gyo-dN-FHP" eventType="touchUpInside" id="soe-El-Dcb"/>
+                                            <segue destination="DfL-Ug-sCZ" kind="unwind" identifier="addMenuItem" unwindAction="newCookAdded:" id="gay-PM-FGl"/>
                                         </connections>
                                     </button>
                                 </subviews>

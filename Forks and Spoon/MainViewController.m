@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 Akshay Budhkar. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "FNSRequest.h"
 #import "FoodDetailViewController.h"
 #import "MainTableViewCell.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -111,6 +111,10 @@
         }
         
     }
+}
+
+-(IBAction)newCookAdded: (UIStoryboardSegue *)segue {
+    
 }
 
 @end

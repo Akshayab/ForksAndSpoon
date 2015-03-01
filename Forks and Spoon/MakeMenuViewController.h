@@ -16,4 +16,6 @@
 @property (strong, nonatomic) NSString *cookId;
 @property (nonatomic, assign) BOOL cookIdAvailable;
 @property (nonatomic, strong) NSMutableArray *fetchedFoodItems;
+@property (nonatomic, strong) NSMutableArray *fetchedFoodItemNames;
+@property (nonatomic, strong) NSMutableArray *fetechedFoodItemsDescriptions;
 @end

@@ -38,9 +38,15 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"foodItem"]) {
-        AFHTTPRequestOperation *op = [FNSRequest createFoodItemForName:self.textField.text withDescription:self.description withRestriction:@"None" withSpiceLevel:[NSNumber numberWithInteger: self.spicySegmentedControl.selectedSegmentIndex]  forPrice:@10 withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            MakeMenuViewController *vc = (MakeMenuViewController *)[segue destinationViewController];
+        MakeMenuViewController *vc = (MakeMenuViewController *)[segue destinationViewController];
+        
+        [vc.fetchedFoodItemNames addObject:self.textField.text];
+        [vc.fetechedFoodItemsDescriptions addObject:self.foodDescriptionField.text];
+        
+        AFHTTPRequestOperation *op = [FNSRequest createFoodItemForName:self.textField.text withDescription:self.foodDescriptionField.text withRestriction:@"None" withSpiceLevel:[NSNumber numberWithInteger: self.spicySegmentedControl.selectedSegmentIndex]  forPrice:@10 withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
             [vc.fetchedFoodItems addObject:responseObject];
+            [vc.table reloadData];
         } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"The error is %@", error);
         }];

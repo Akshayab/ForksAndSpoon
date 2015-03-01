@@ -17,7 +17,7 @@
 		80E5E1BB1AA187B400DE5E62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1BA1AA187B400DE5E62 /* main.m */; };
 		80E5E1BE1AA187B400DE5E62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1BD1AA187B400DE5E62 /* AppDelegate.m */; };
 		80E5E1C11AA187B400DE5E62 /* Forks_and_Spoon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1BF1AA187B400DE5E62 /* Forks_and_Spoon.xcdatamodeld */; };
-		80E5E1C41AA187B500DE5E62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1C31AA187B500DE5E62 /* ViewController.m */; };
+		80E5E1C41AA187B500DE5E62 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1C31AA187B500DE5E62 /* MainViewController.m */; };
 		80E5E1C91AA187B500DE5E62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E5E1C81AA187B500DE5E62 /* Images.xcassets */; };
 		80E5E1CC1AA187B500DE5E62 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80E5E1CA1AA187B500DE5E62 /* LaunchScreen.xib */; };
 		80E5E1D81AA187B500DE5E62 /* Forks_and_SpoonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1D71AA187B500DE5E62 /* Forks_and_SpoonTests.m */; };
@@ -61,8 +61,8 @@
 		80E5E1BC1AA187B400DE5E62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		80E5E1BD1AA187B400DE5E62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		80E5E1C01AA187B400DE5E62 /* Forks_and_Spoon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Forks_and_Spoon.xcdatamodel; sourceTree = "<group>"; };
-		80E5E1C21AA187B400DE5E62 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		80E5E1C31AA187B500DE5E62 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		80E5E1C21AA187B400DE5E62 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		80E5E1C31AA187B500DE5E62 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		80E5E1C81AA187B500DE5E62 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		80E5E1CB1AA187B500DE5E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		80E5E1D11AA187B500DE5E62 /* Forks and SpoonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Forks and SpoonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,8 +139,8 @@
 			children = (
 				80E5E1BC1AA187B400DE5E62 /* AppDelegate.h */,
 				80E5E1BD1AA187B400DE5E62 /* AppDelegate.m */,
-				80E5E1C21AA187B400DE5E62 /* ViewController.h */,
-				80E5E1C31AA187B500DE5E62 /* ViewController.m */,
+				80E5E1C21AA187B400DE5E62 /* MainViewController.h */,
+				80E5E1C31AA187B500DE5E62 /* MainViewController.m */,
 				F69CA1631AA2C50400EF1E76 /* Main.storyboard */,
 				F69CA1601AA2A21200EF1E76 /* ProfileViewController.h */,
 				F69CA1611AA2A21200EF1E76 /* ProfileViewController.m */,
@@ -342,7 +342,7 @@
 				801FCB561AA1EFBD0037F072 /* OrderViewController.m in Sources */,
 				801FCB5C1AA24A220037F072 /* FNSRequest.m in Sources */,
 				80E17F6E1AA316C70012B173 /* FoodItemViewController.m in Sources */,
-				80E5E1C41AA187B500DE5E62 /* ViewController.m in Sources */,
+				80E5E1C41AA187B500DE5E62 /* MainViewController.m in Sources */,
 				801FCB591AA1FF3E0037F072 /* MenuTableViewCell.m in Sources */,
 				F69CA1621AA2A21200EF1E76 /* ProfileViewController.m in Sources */,
 				80E5E1C11AA187B400DE5E62 /* Forks_and_Spoon.xcdatamodeld in Sources */,

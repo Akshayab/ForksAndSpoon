@@ -830,10 +830,10 @@
             </objects>
             <point key="canvasLocation" x="702" y="873"/>
         </scene>
-        <!--View Controller-->
+        <!--Food Item View Controller-->
         <scene sceneID="bVK-0D-jRl">
             <objects>
-                <viewController id="tdS-Z8-KQD" sceneMemberID="viewController">
+                <viewController id="tdS-Z8-KQD" customClass="FoodItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GRm-71-zgl"/>
                         <viewControllerLayoutGuide type="bottom" id="aOr-fp-3Vf"/>
@@ -980,6 +980,9 @@
                                     <color key="titleColor" red="0.99607849120000003" green="0.99215692280000001" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="QbH-Wc-tNm" kind="unwind" identifier="foodItem" unwindAction="comesFromFoodItem:" id="tiL-x1-cMa"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxJ-G0-VFj">
                                 <rect key="frame" x="75" y="224" width="278" height="30"/>
@@ -1055,8 +1058,19 @@
                             </mask>
                         </variation>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="eK0-is-Czu"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="foodDescriptionField" destination="arX-xx-LGt" id="G0Z-Iw-SZ3"/>
+                        <outlet property="priceLabel" destination="AL4-0J-EV2" id="UF8-4f-u4Q"/>
+                        <outlet property="spicySegmentedControl" destination="vSh-sJ-0Zl" id="okg-2Z-4mb"/>
+                        <outlet property="textField" destination="Ql0-p2-9hn" id="dB2-sQ-n7F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9C-D1-2EW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QbH-Wc-tNm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2426" y="1851"/>
         </scene>
@@ -1172,6 +1186,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <action selector="confirmButtonPressed:" destination="Gyo-dN-FHP" eventType="touchUpInside" id="soe-El-Dcb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.86743150219999998" green="0.89603713920000005" blue="0.94736527420000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -1195,7 +1212,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="tdS-Z8-KQD" kind="show" id="qXR-rE-tbb"/>
+                                            <segue destination="tdS-Z8-KQD" kind="show" identifier="addFoodItem" id="qXR-rE-tbb"/>
                                         </connections>
                                     </button>
                                 </subviews>

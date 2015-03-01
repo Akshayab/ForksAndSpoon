@@ -10,8 +10,10 @@
 
 @interface MakeMenuViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
+- (IBAction)confirmButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) NSString *cookId;
 @property (nonatomic, assign) BOOL cookIdAvailable;
+@property (nonatomic, strong) NSMutableArray *fetchedFoodItems;
 @end

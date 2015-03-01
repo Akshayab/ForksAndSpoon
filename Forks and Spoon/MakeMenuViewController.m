@@ -8,6 +8,8 @@
 
 #import "MakeMenuViewController.h"
 #import "MenuItemsCell.h"
+#import "FoodItemViewController.h"
+#import "FNSRequest.h"
 
 @interface MakeMenuViewController ()
 
@@ -22,6 +24,7 @@
     self.table.dataSource = self;
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.cookIdAvailable = NO;
+    self.fetchedFoodItems = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,7 +35,7 @@
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 5;
+    return self.fetchedFoodItems.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -51,6 +54,16 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"addFoodItem"]) {
+
+        
+    }
+}
+
+-(IBAction)comesFromFoodItem:(UIStoryboardSegue *)segue {
+}
+
 /*
 #pragma mark - Navigation
 
@@ -61,4 +74,19 @@
 }
 */
 
+- (IBAction)confirmButtonPressed:(id)sender {
+    if (self.cookIdAvailable) {
+        NSArray *stringArrays = [self.fetchedFoodItems valueForKey:@"foodId"];
+        AFHTTPRequestOperation *op = [FNSRequest createMenuForFoodItems:stringArrays cookId:[self.cookId valueForKey:@"cookId"] withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"The response is %@", responseObject);
+        } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"The error is %@", error);
+        }];
+        
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        [queue addOperation:op];
+    }
+    
+    
+}
 @end

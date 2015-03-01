@@ -1295,7 +1295,6 @@
                                             </attributedString>
                                         </state>
                                         <connections>
-                                            <action selector="confirmButtonPressed:" destination="Gyo-dN-FHP" eventType="touchUpInside" id="soe-El-Dcb"/>
                                             <segue destination="DfL-Ug-sCZ" kind="unwind" identifier="addMenuItem" unwindAction="newCookAdded:" id="gay-PM-FGl"/>
                                         </connections>
                                     </button>

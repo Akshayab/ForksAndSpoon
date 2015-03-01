@@ -46,7 +46,7 @@
     }];
     
     // Post Menu Item
-    AFHTTPRequestOperation *postMenuOp = [FNSRequest createMenuForFoodItems:@[@"PH7QpmHYwz"] cookId:@"40MOD4vEpz" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *postMenuOp = [FNSRequest createMenuForFoodItems:@[@"b5n8HUrL4C"] cookId:@"bAK4rOU72q" withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
        
         NSLog(@"%@ ", responseObject);
         
@@ -80,8 +80,8 @@
     
     
     // Add operations
-    [operationQueue addOperation:getMenusOp];
-//    [operationQueue addOperation:postFoodsOp];
+//    [operationQueue addOperation:getMenusOp];
+    [operationQueue addOperation:postFoodsOp];
 //    [operationQueue addOperation:postCookOp];
 //    [operationQueue addOperation:postMenuOp];
 //    [operationQueue addOperation:postOrderOp];

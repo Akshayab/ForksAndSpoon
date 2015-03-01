@@ -12,6 +12,7 @@
 		801FCB591AA1FF3E0037F072 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 801FCB581AA1FF3E0037F072 /* MenuTableViewCell.m */; };
 		801FCB5C1AA24A220037F072 /* FNSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 801FCB5B1AA24A220037F072 /* FNSRequest.m */; };
 		80E03F891AA1AF1300972EE4 /* FoodDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E03F881AA1AF1300972EE4 /* FoodDetailViewController.m */; };
+		80E17F6B1AA2D4B30012B173 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E17F6A1AA2D4B30012B173 /* MainTableViewCell.m */; };
 		80E5E1BB1AA187B400DE5E62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1BA1AA187B400DE5E62 /* main.m */; };
 		80E5E1BE1AA187B400DE5E62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1BD1AA187B400DE5E62 /* AppDelegate.m */; };
 		80E5E1C11AA187B400DE5E62 /* Forks_and_Spoon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80E5E1BF1AA187B400DE5E62 /* Forks_and_Spoon.xcdatamodeld */; };
@@ -49,6 +50,8 @@
 		801FCB5B1AA24A220037F072 /* FNSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNSRequest.m; sourceTree = "<group>"; };
 		80E03F871AA1AF1300972EE4 /* FoodDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDetailViewController.h; sourceTree = "<group>"; };
 		80E03F881AA1AF1300972EE4 /* FoodDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDetailViewController.m; sourceTree = "<group>"; };
+		80E17F691AA2D4B30012B173 /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
+		80E17F6A1AA2D4B30012B173 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
 		80E5E1B51AA187B400DE5E62 /* Forks and Spoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forks and Spoon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80E5E1B91AA187B400DE5E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80E5E1BA1AA187B400DE5E62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				801FCB581AA1FF3E0037F072 /* MenuTableViewCell.m */,
 				801FCB5A1AA24A220037F072 /* FNSRequest.h */,
 				801FCB5B1AA24A220037F072 /* FNSRequest.m */,
+				80E17F691AA2D4B30012B173 /* MainTableViewCell.h */,
+				80E17F6A1AA2D4B30012B173 /* MainTableViewCell.m */,
 			);
 			path = "Forks and Spoon";
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				80E5E1BE1AA187B400DE5E62 /* AppDelegate.m in Sources */,
 				80E5E1BB1AA187B400DE5E62 /* main.m in Sources */,
 				801FCB531AA1E08C0037F072 /* MenuListViewController.m in Sources */,
+				80E17F6B1AA2D4B30012B173 /* MainTableViewCell.m in Sources */,
 				801FCB561AA1EFBD0037F072 /* OrderViewController.m in Sources */,
 				801FCB5C1AA24A220037F072 /* FNSRequest.m in Sources */,
 				80E5E1C41AA187B500DE5E62 /* ViewController.m in Sources */,

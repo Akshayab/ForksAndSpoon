@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "FNSRequest.h"
 #import "FoodDetailViewController.h"
+#import "MainTableViewCell.h"
 
 @interface ViewController ()
 
@@ -24,10 +25,10 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     // Do any additional setup after loading the view, typically from a nib.
-    self.fetchedCookData = [[NSMutableArray alloc] init];
+    self.fetchedCookedArray = [[NSMutableArray alloc] init];
     // Get Cook Item
     AFHTTPRequestOperation *getCooksOp = [FNSRequest getCooksWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.fetchedCookData = [responseObject valueForKey:@"results"];
+        self.fetchedCookedArray = [responseObject valueForKey:@"results"];
         [self.mainTableView reloadData];
     } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -46,10 +47,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 
 {
-    if (!self.fetchedCookData) {
+    if (!self.fetchedCookedArray) {
         return 5;
     }
-    return self.fetchedCookData.count;
+    return self.fetchedCookedArray.count + 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,14 +59,15 @@
     
     static NSString *simpleTableIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    MainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[MainTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         
     }
     
+    cell.nameLabel.text = @"Badass is";
     UIImageView *itemImageView = (UIImageView *)[cell viewWithTag:200];
     
     itemImageView.layer.cornerRadius = itemImageView.frame.size.height/2;
@@ -100,9 +102,13 @@
  }*/
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"FoodSegue"]) {
+    if ([segue.identifier isEqualToString:@"FoodDetail"]) {
         NSIndexPath *row = [self.mainTableView indexPathForSelectedRow];
         [self.mainTableView deselectRowAtIndexPath:row animated:YES];
+        FoodDetailViewController *vc = (FoodDetailViewController *)[segue destinationViewController];
+        if (self.fetchedCookedArray.count) {
+            vc.cookId = [[self.fetchedCookedArray objectAtIndex:[row row]] valueForKey:@"menuId"];
+        }
         
     }
 }

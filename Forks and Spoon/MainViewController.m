@@ -67,7 +67,7 @@
         
     }
     
-    cell.nameLabel.text = @"Badass is";
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ is", [self.fetchedCookedArray[indexPath.row] valueForKey:@"name"]];
     cell.makingLabel.text = [NSString stringWithFormat:@"is making %@", [self.fetchedCookedArray[indexPath.row] valueForKey:@"category"]];
     UIImageView *itemImageView = (UIImageView *)[cell viewWithTag:200];
     

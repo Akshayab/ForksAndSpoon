@@ -59,14 +59,14 @@
                                                     <rect key="frame" x="254" y="96" width="92" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="j0j-5o-qUr"/>
-                                                        <constraint firstAttribute="width" constant="92" id="tyH-7d-gfo"/>
+                                                        <constraint firstAttribute="width" constant="135" id="tyH-7d-gfo"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Beyonce ">
                                                             <attributes>
                                                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="17" name="GillSans-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="is">
@@ -74,7 +74,7 @@
                                                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="17" name="GillSans"/>
                                                                 <font key="NSOriginalFont" size="17" name="GillSans"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -84,7 +84,7 @@
                                                     <rect key="frame" x="238" y="118" width="135" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="rLc-YO-SOL"/>
-                                                        <constraint firstAttribute="width" constant="135" id="xAl-Mu-pK9"/>
+                                                        <constraint firstAttribute="width" constant="150" id="xAl-Mu-pK9"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="making ">
@@ -119,7 +119,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="centerX" secondItem="26Z-SE-hbz" secondAttribute="centerX" id="0cj-N8-Obm"/>
                                                 <constraint firstItem="Dj3-w2-jx7" firstAttribute="top" secondItem="F0J-FW-xvd" secondAttribute="topMargin" constant="6" id="4yU-vx-crr"/>
-                                                <constraint firstItem="AAG-VV-dnv" firstAttribute="centerX" secondItem="26Z-SE-hbz" secondAttribute="centerX" constant="5.5" id="Jcq-sx-yhX"/>
+                                                <constraint firstItem="AAG-VV-dnv" firstAttribute="centerX" secondItem="26Z-SE-hbz" secondAttribute="centerX" id="Jcq-sx-yhX"/>
                                                 <constraint firstItem="AAG-VV-dnv" firstAttribute="top" secondItem="26Z-SE-hbz" secondAttribute="bottom" constant="1" id="OBC-Fy-vK7"/>
                                                 <constraint firstItem="26Z-SE-hbz" firstAttribute="centerX" secondItem="Dj3-w2-jx7" secondAttribute="centerX" id="dM2-Kg-tLx"/>
                                                 <constraint firstAttribute="centerX" secondItem="Dj3-w2-jx7" secondAttribute="centerX" id="sGt-LF-qpK"/>
@@ -307,7 +307,7 @@
                                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIV-ER-Axm">
                                                 <rect key="frame" x="0.0" y="100" width="250" height="293"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG1-tp-01U">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG1-tp-01U">
                                                         <rect key="frame" x="8" y="8" width="48.5" height="26"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="Time">
@@ -474,8 +474,8 @@
                         <outlet property="foodItemsLabel" destination="Qi7-5Z-WMy" id="Jfb-uz-rY9"/>
                         <outlet property="menuView" destination="GId-KN-eaA" id="Gvk-an-Y2z"/>
                         <outlet property="proileView" destination="HaQ-xm-F25" id="yTp-uy-Mh4"/>
-                        <outlet property="totalPriceLabel" destination="1nU-xM-USg" id="upi-Qa-9FH"/>
                         <outlet property="scrollview" destination="PC5-S0-jJf" id="y9Z-Cg-4aE"/>
+                        <outlet property="totalPriceLabel" destination="1nU-xM-USg" id="upi-Qa-9FH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7T-5N-soj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -922,12 +922,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Date1" destination="PHF-AF-yks" id="J9b-Hn-5Dg"/>
+                        <outlet property="Date2" destination="aie-e9-vPP" id="Fwa-5c-N5U"/>
                         <outlet property="addressField" destination="qaG-PP-BzH" id="fKQ-Dg-Yde"/>
                         <outlet property="continueButtonPressed" destination="Tht-7L-bIQ" id="a4U-Hw-Beb"/>
                         <outlet property="cuisine" destination="BQO-90-yVY" id="MQv-ra-8xW"/>
                         <outlet property="endTime" destination="aie-e9-vPP" id="gXr-Dd-FIi"/>
-                        <outlet property="Date1" destination="PHF-AF-yks" id="J9b-Hn-5Dg"/>
-                        <outlet property="Date2" destination="aie-e9-vPP" id="Fwa-5c-N5U"/>
                         <outlet property="itemImageView" destination="UKm-fI-54j" id="TNt-i3-Cwp"/>
                         <outlet property="peopleRemaining" destination="acq-9u-uDz" id="ze5-5z-xVT"/>
                         <outlet property="startTime" destination="PHF-AF-yks" id="0O3-wC-XAr"/>

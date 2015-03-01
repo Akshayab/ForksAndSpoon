@@ -261,7 +261,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-5Z-WMy">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-5Z-WMy">
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -320,7 +320,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <datePicker contentMode="scaleToFill" verticalHuggingPriority="251" ambiguous="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="v6Q-1b-GL4">
+                                                    <datePicker contentMode="scaleToFill" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="v6Q-1b-GL4">
                                                         <rect key="frame" x="53" y="81" width="200" height="162"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="mRX-FH-TNb"/>
@@ -1302,7 +1302,6 @@
                                             </attributedString>
                                         </state>
                                         <connections>
-                                            <action selector="confirmButtonPressed:" destination="Gyo-dN-FHP" eventType="touchUpInside" id="soe-El-Dcb"/>
                                             <segue destination="DfL-Ug-sCZ" kind="unwind" identifier="addMenuItem" unwindAction="newCookAdded:" id="gay-PM-FGl"/>
                                         </connections>
                                     </button>

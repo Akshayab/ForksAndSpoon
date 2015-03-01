@@ -14,7 +14,9 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray *fetchedCookedArray;
 @property (strong, nonatomic) NSArray *foodImages;
+
 @property (strong, nonatomic) NSArray *profileImages;
 
+- (void)hardReload;
 @end
 

@@ -64,7 +64,19 @@
     }
     else if ([segue.identifier isEqualToString:@"addMenuItem"]){
         MainViewController *vc = (MainViewController *)[segue destinationViewController];
-        [vc.mainTableView reloadData];
+        
+        if (self.cookIdAvailable) {
+            NSArray *stringArrays = [self.fetchedFoodItems valueForKey:@"foodId"];
+            AFHTTPRequestOperation *op = [FNSRequest createMenuForFoodItems:stringArrays cookId:[self.cookId valueForKey:@"cookId"] withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"The response is %@", responseObject);
+                [vc hardReload];
+            } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"The error is %@", error);
+            }];
+            
+            NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+            [queue addOperation:op];
+        }
     }
 }
 
@@ -82,17 +94,7 @@
 */
 
 - (IBAction)confirmButtonPressed:(id)sender {
-    if (self.cookIdAvailable) {
-        NSArray *stringArrays = [self.fetchedFoodItems valueForKey:@"foodId"];
-        AFHTTPRequestOperation *op = [FNSRequest createMenuForFoodItems:stringArrays cookId:[self.cookId valueForKey:@"cookId"] withSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"The response is %@", responseObject);
-        } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"The error is %@", error);
-        }];
-        
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        [queue addOperation:op];
-    }
+    
     
 }
 @end

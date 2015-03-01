@@ -42,6 +42,19 @@
     [operationQueue addOperation:getCooksOp];
 }
 
+- (void)hardReload {
+    AFHTTPRequestOperation *getCooksOp = [FNSRequest getCooksWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.fetchedCookedArray = [responseObject valueForKey:@"results"];
+        [self.mainTableView reloadData];
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"The error is %@", error);
+    }];
+    
+    NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+    [operationQueue addOperation:getCooksOp];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

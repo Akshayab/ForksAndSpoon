@@ -80,7 +80,7 @@
     
     
     // Add operations
-//    [operationQueue addOperation:getMenusOp];
+    [operationQueue addOperation:getMenusOp];
 //    [operationQueue addOperation:postFoodsOp];
 //    [operationQueue addOperation:postCookOp];
 //    [operationQueue addOperation:postMenuOp];

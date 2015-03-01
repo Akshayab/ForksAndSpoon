@@ -90,18 +90,19 @@
 }
 
 /*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FoodDetail"];
-    [self presentViewController:vc animated:YES completion:^{
-        
-    }];
-}*/
+ 
+ UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FoodDetail"];
+ [self presentViewController:vc animated:YES completion:^{
+ 
+ }];
+ }*/
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"FoodSegue"]) {
         NSIndexPath *row = [self.mainTableView indexPathForSelectedRow];
         [self.mainTableView deselectRowAtIndexPath:row animated:YES];
         
+    }
 }
 
 @end

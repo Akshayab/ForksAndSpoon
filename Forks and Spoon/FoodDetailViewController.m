@@ -88,12 +88,12 @@
     
     // Add operations
     
-    [operationQueue addOperation:getCooksOp];
-    [operationQueue addOperation:getMenusOp];
-    [operationQueue addOperation:postFoodsOp];
-    [operationQueue addOperation:postCookOp];
-    [operationQueue addOperation:postMenuOp];
-    [operationQueue addOperation:postOrderOp];
+//    [operationQueue addOperation:getCooksOp];
+//    [operationQueue addOperation:getMenusOp];
+//    [operationQueue addOperation:postFoodsOp];
+//    [operationQueue addOperation:postCookOp];
+//    [operationQueue addOperation:postMenuOp];
+//    [operationQueue addOperation:postOrderOp];
 }
 
 - (void)didReceiveMemoryWarning {

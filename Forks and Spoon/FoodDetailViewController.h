@@ -26,4 +26,6 @@
 @property (strong, nonatomic) NSMutableDictionary *fetchedMenuData;
 @property (strong, nonatomic) NSMutableArray *fetchedCookData;
 
+@property (strong, nonatomic) NSString *cookId;
+
 @end

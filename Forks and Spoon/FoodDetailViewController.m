@@ -66,13 +66,6 @@
         
     }];
     
-    // Get Cook Item
-    AFHTTPRequestOperation *getCooksOp = [FNSRequest getCooksWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"The response is %@", responseObject);
-    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSLog(@"The error is %@", error);
-    }];
     
     NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
     
@@ -87,9 +80,7 @@
     
     
     // Add operations
-    
-//    [operationQueue addOperation:getCooksOp];
-//    [operationQueue addOperation:getMenusOp];
+    [operationQueue addOperation:getMenusOp];
 //    [operationQueue addOperation:postFoodsOp];
 //    [operationQueue addOperation:postCookOp];
 //    [operationQueue addOperation:postMenuOp];

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "FNSRequest.h"
 #import "FoodDetailViewController.h"
 
 @interface ViewController ()
@@ -21,6 +22,18 @@
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     // Do any additional setup after loading the view, typically from a nib.
+    self.fetchedCookData = [[NSMutableArray alloc] init];
+    // Get Cook Item
+    AFHTTPRequestOperation *getCooksOp = [FNSRequest getCooksWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.fetchedCookData = [responseObject valueForKey:@"results"];
+        [self.mainTableView reloadData];
+    } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"The error is %@", error);
+    }];
+    
+    NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+    [operationQueue addOperation:getCooksOp];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,9 +44,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 
 {
-    
-    return 12;
-    
+    if (!self.fetchedCookData) {
+        return 5;
+    }
+    return self.fetchedCookData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,23 +90,19 @@
 }
 
 /*-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FoodDetail"];
-    [self presentViewController:vc animated:YES completion:^{
-        
-    }];
-}*/
+ 
+ UINavigationController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FoodDetail"];
+ [self presentViewController:vc animated:YES completion:^{
+ 
+ }];
+ }*/
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"FoodSegue"]) {
         NSIndexPath *row = [self.mainTableView indexPathForSelectedRow];
         [self.mainTableView deselectRowAtIndexPath:row animated:YES];
         
-            
-//        FoodDetailViewController *vc = segue.destinationViewController;
-//        NSInteger *row = [[self.mainTableView indexPathForSelectedRow] row];
-//        vc.row = row;
-    } 
+    }
 }
 
 @end

@@ -23,6 +23,7 @@
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.foodImages = @[@"mexicanfood", @"food2", @"food3"];
 
     // Do any additional setup after loading the view, typically from a nib.
     self.fetchedCookedArray = [[NSMutableArray alloc] init];
@@ -82,7 +83,7 @@
     
     av.backgroundColor = [UIColor clearColor];
     av.opaque = NO;
-    av.image = [UIImage imageNamed:@"mexicanfood"];
+    av.image = [UIImage imageNamed:self.foodImages[indexPath.row % 3]];
     cell.backgroundView = av;
     cell.selectedBackgroundView = back_av;
     

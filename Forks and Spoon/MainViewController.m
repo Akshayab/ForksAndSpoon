@@ -68,6 +68,7 @@
     }
     
     cell.nameLabel.text = @"Badass is";
+    cell.makingLabel.text = [NSString stringWithFormat:@"is making %@", [self.fetchedCookedArray[indexPath.row] valueForKey:@"category"]];
     UIImageView *itemImageView = (UIImageView *)[cell viewWithTag:200];
     
     itemImageView.layer.cornerRadius = itemImageView.frame.size.height/2;

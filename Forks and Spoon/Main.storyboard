@@ -132,6 +132,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="makingLabel" destination="AAG-VV-dnv" id="cCL-U5-ooH"/>
                                             <outlet property="nameLabel" destination="26Z-SE-hbz" id="tyl-oa-BBr"/>
                                             <segue destination="b3f-Wf-h3i" kind="show" identifier="FoodDetail" id="OSN-hy-ZQR"/>
                                         </connections>

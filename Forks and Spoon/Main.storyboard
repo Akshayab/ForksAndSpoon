@@ -414,6 +414,7 @@
                         <outlet property="foodItemsLabel" destination="Qi7-5Z-WMy" id="Jfb-uz-rY9"/>
                         <outlet property="menuView" destination="GId-KN-eaA" id="Gvk-an-Y2z"/>
                         <outlet property="proileView" destination="HaQ-xm-F25" id="yTp-uy-Mh4"/>
+                        <outlet property="totalPriceLabel" destination="1nU-xM-USg" id="upi-Qa-9FH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7T-5N-soj" userLabel="First Responder" sceneMemberID="firstResponder"/>

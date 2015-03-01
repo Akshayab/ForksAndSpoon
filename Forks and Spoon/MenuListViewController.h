@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemInfo;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (strong, nonatomic) NSMutableArray *fetchedMenuItems;
+@property (strong, nonatomic) NSArray *fetchedGddIds;
 @end

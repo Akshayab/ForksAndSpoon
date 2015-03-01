@@ -8,6 +8,7 @@
 
 #import "MenuListViewController.h"
 #import "MenuTableViewCell.h"
+#import "FNSRequest.h"
 
 @interface MenuListViewController ()
 
@@ -18,14 +19,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.menuItems = [[NSMutableArray alloc] init];
+//    self.fetchedGddIds = [[NSArray alloc] init];
+    for (NSString * string in self.fetchedGddIds) {
+        AFHTTPRequestOperation *getFoodOp = [FNSRequest getFoodForId:string WithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self.fetchedMenuItems addObject:responseObject];
+            [self.tableView reloadData];
+        } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            NSLog(@"The error is %@", error);
+        }];
+        NSOperationQueue *operationQueue = [[NSOperationQueue alloc] init];
+        [operationQueue addOperation:getFoodOp];
+    }
     // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.fetchedMenuItems = [[NSMutableArray alloc] initWithArray: @[@{@"name":@"Burrito"},
-                                                              @{@"name":@"Fried Rice"},
-                                                              @{@"name":@"Butter Chicken"},
-                                                                     @{@"name":@"Fancy Chicken"}]];
+    self.fetchedMenuItems = [[NSMutableArray alloc] init];
+//    self.fetchedGddIds = [[NSArray alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning {

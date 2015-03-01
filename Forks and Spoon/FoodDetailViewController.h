@@ -20,9 +20,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *cookName;
 @property (strong, nonatomic) IBOutlet UILabel *address;
 @property (strong, nonatomic) NSMutableArray *menuItems;
+@property (strong, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (strong, nonatomic) NSMutableDictionary *fetchedMenuData;
 @property (strong, nonatomic) NSMutableArray *fetchedCookData;
+@property (strong, nonatomic) NSDictionary *menuItem;
 
 @property (strong, nonatomic) NSString *cookId;
-
+@property (strong, nonatomic) NSArray *foodIds;
 @end

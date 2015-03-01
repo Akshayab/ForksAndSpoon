@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view.
     self.menuItems = [[NSMutableArray alloc] init];
     self.fetchedCookData = [[NSMutableArray alloc] init];
-    
+    self.menuItem = [[NSDictionary alloc] init];
     // Post the cook
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
@@ -71,9 +71,11 @@
     
     // Get Menu Items
     
-    AFHTTPRequestOperation *getMenusOp = [FNSRequest getMenusForMenuId:self.cookId WithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperation *getMenuOp = [FNSRequest getMenusForMenuId:self.cookId WithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"The response is %@", responseObject);
-        
+        self.menuItem = responseObject;
+        self.foodIds = [self.menuItem valueForKey:@"arrayFoodIds"];
+        [self setUpViews];
     } withFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         NSLog(@"the error is %@", error);
@@ -88,9 +90,9 @@
     
     
     // Add operations
-//    [operationQueue addOperation:getMenusOp];
+    [operationQueue addOperation:getMenuOp];
 //    [operationQueue addOperation:postFoodsOp];
-    [operationQueue addOperation:getFoodOp];
+//    [operationQueue addOperation:getFoodOp];
 //    [operationQueue addOperation:postCookOp];
 //    [operationQueue addOperation:postMenuOp];
 //    [operationQueue addOperation:postOrderOp];
@@ -113,6 +115,10 @@
     else {
         
     }
+}
+
+- (void)setUpViews {
+    
 }
 
 /*
@@ -138,18 +144,17 @@
             self.foodItemsLabel.hidden = NO;
             NSArray *strings = [self.menuItems valueForKey:@"name"];
             self.foodItemsLabel.text = [strings componentsJoinedByString:@","];
+            NSArray *prices = [self.menuItems valueForKey:@"price"];
+            NSNumber *totalPrice = [prices valueForKeyPath:@"@max.floatValue"];
+            if (!totalPrice) {
+                self.totalPriceLabel.text = @"$ 0";
+            }
+            else {
+                self.totalPriceLabel.text = [NSString stringWithFormat:@"$ %@", totalPrice];
+            }
         }
     }
 }
-
-//- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-//    if ([identifier isEqualToString:@"PlaceOrder"]) {
-//        if (self.menuItems.count) {
-//            return YES;
-//        }
-//    }
-//    return NO;
-//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"PlaceOrder"]) {
@@ -163,6 +168,7 @@
     else if ([segue.identifier isEqualToString:@"MenuItems"]) {
         MenuListViewController *vc = (MenuListViewController *)segue.destinationViewController;
         vc.menuItems = self.menuItems;
+        vc.fetchedGddIds = self.foodIds;
     }
 }
 @end
